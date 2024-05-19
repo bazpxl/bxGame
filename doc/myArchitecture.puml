@@ -1,0 +1,97 @@
+@startuml
+'https://plantuml.com/class-diagram'
+
+
+enum PerformanceDrawMode{
+None,
+Title,
+OStream,
+}
+
+abstract class Game{
+--protected data--
+window : Window*
+renderer: Renderer*
+isRunning : bool
+frameSinceStart : u32
+currentStateIdX : int
+nextStateIdX : int
+currentState : GameState*
+windowSize : Point
+..protected methods..
+AverageMSecPerFrame() const : float
+ResetPerformanceInfo( const TimePoint current) : void
+OutputPerformanceInfo( const TimePoint current, Duration needed) : void
+--public methods--
+virtual HandleEvent(const Event* event) : bool
+virtual Input() : void
+virtual Update( u64 msSinceStart, float deltaT) : void
+virtual Render( u64 msSinceStart, float deltaTNeeded) : void
+virtual Run() : int
+
+virtual SetNextState ( int index ) : void
+virtual ActivateNextState( int index ) : void
+}
+
+abstract class Gamestate{
+game : Game &
+renderer : Renderer *
+..public..
+virtual Init() : void
+virtual UnInit() : void
+virtual HandleEvent(const Event* event) : bool
+virtual Input() : void
+virtual Update( u64 msSinceStart, float deltaT) : void
+virtual Render( u64 msSinceStart, float deltaTNeeded) : void
+virtual IsFPSLimited() const : bool
+virtual GetClearColor() const : Color
+}
+class BzGame
+class concreteState
+
+
+
+class TileSet{
+_xSize : int
+_ySize : int
+_number : int
+_path : string
+texture : shared_ptr<SDL_Texture>
+}
+struct Layer{
+map : Vec<Tile>
+texture : SDL_Texture*
+isVisible : bool
+}
+
+class TileMap{
+_height : int
+_width : int
+_tilesize : int
+_colsX : uint8_t
+_rowsY : uint8_t
+--
+TileMap(Renderer* renderer)
+ReadMap(String path) : bool
+WriteMap(String path) : bool
+
+}
+
+class MessageBus{
+
+}
+
+class concreteState extends Gamestate
+class BzGame extends Game
+
+BzGame "1" *-- "*" concreteState
+TileMap "1" *-- "*"Layer
+TileMap "1" *-- "*"TileSet
+
+BzGame "1" *-- "1" TileMap
+Game "1" *-- "*" Gamestate
+
+
+
+
+@enduml
