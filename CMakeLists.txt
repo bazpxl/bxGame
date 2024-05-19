@@ -169,6 +169,9 @@ add_compile_options( "$<$<CONFIG:DEBUG>:-D_DEBUG>" )
 
 add_executable( bxGame
         src/main.cpp
+        src/core/global.h
+        src/core/sdl_smartptrs.h
+
 
 )
 
