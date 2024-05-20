@@ -18,7 +18,10 @@
 #include <unordered_set>
 #include <vector>
 
-#include <core/sdl_smartptrs.h>
+
+
+
+
 
 #include <fmt/core.h>   // https://fmt.dev/latest/index.html
 #include <nfd.h>        // https://github.com/mlabbe/nativefiledialog/blob/master/README.md

@@ -5,7 +5,7 @@
 #ifndef SDL_BZGAME_SDL_SMARTPTRS_H
 #define SDL_BZGAME_SDL_SMARTPTRS_H
 
-#include "global.h"
+#include <core/global.h>
 
 struct bzDeleter{
     void operator()(Window *p)    const { SDL_DestroyWindow(p);    }
@@ -23,9 +23,9 @@ CreateSharedTexture(SDL_Renderer *renderer, const char * const file)
 }
 
 std::shared_ptr<Renderer>
-CreateSharedRenderer(Window* window, int index, Uint32 flags)
+CreateSharedRenderer(std::shared_ptr<Window> window, int index, Uint32 flags)
 {
-    Renderer* renderer = SDL_CreateRenderer(window, index, flags);
+    Renderer* renderer = SDL_CreateRenderer(window.get(), index, flags);
     if(renderer == nullptr) throw std::runtime_error("ERROR: Could not create renderer.\n");
     return {renderer, bzDeleter()};
 }
