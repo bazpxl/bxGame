@@ -12,7 +12,7 @@ class EditorState : public GameState {
 public:
     explicit EditorState(Game & game_, Renderer * renderer_) : GameState(game_, renderer_){}
 
-    ~EditorState() override = default;
+    ~EditorState() override;
 
     void Init()                             override;
     void UnInit()                           override;

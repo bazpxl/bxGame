@@ -6,5 +6,51 @@
 
 
 void EditorState::Init() {
-    GameState::Init();
+
+}
+
+EditorState::~EditorState() = default;
+
+void EditorState::UnInit() {
+
+}
+
+void EditorState::Input(){
+
+}
+
+
+bool EditorState::HandleEvent(const Event &event)
+{
+    switch (event.type)
+    {
+        case SDL_KEYDOWN:
+        {
+            const Keysym& what_key = event.key.keysym;
+
+            if (what_key.scancode == SDL_SCANCODE_ESCAPE){
+                game.SetNextState(0);
+            }else
+            {
+                return false; // Not handled
+            }
+
+            return true; // Confusing control flow: Handled by all but the else case
+
+        }
+        case SDL_MOUSEBUTTONDOWN:
+            break;
+        default:
+            break;
+    }
+    return false;
+}
+
+
+void EditorState::Update(const u32 framesSinceStart, const u32 msSinceStart, const float deltaT) {
+
+}
+
+void EditorState::Render(const u32 framesSinceStart, const u32 msSinceStart, const float deltaT) {
+
 }

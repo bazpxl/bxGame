@@ -3,11 +3,12 @@
 //
 
 #include "BxGame.h"
+#include "EditorState.h"
 
 BxGame::BxGame() : Game("BzGame", Point(1024,720),  true)
 {
     allStates = {
-
+        std::make_shared<EditorState>(*this, renderer.get())
     };
 
     SetNextState(0);
