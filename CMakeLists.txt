@@ -157,8 +157,8 @@ else()
 
     #set( CMAKE_C_FLAGS_DEBUG     "${CMAKE_C_FLAGS_DEBUG}     -Og" )
     #set( CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG}   -Og" )
-    #set( CMAKE_C_FLAGS_RELEASE   "${CMAKE_C_FLAGS_RELEASE}   -O2" )     # default is -O3, which might cause more concurrency problems
-    #set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2" )     # default is -O3, which might cause more concurrency problems
+    #set( CMAKE_C_FLAGS_RELEASE   "${CMAKE_C_FLAGS_RELEASE}   -O2" ) # default is -O3, which might cause more concurrency problems
+    #set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2" ) # default is -O3, which might cause more concurrency problems
 
     # Here be Dragons
     #set( CMAKE_C_FLAGS_RELEASE   "${CMAKE_C_FLAGS_RELEASE}   -ffast-math" )
@@ -177,6 +177,8 @@ add_executable( bxGame
         src/BxGame/BxGame.h
         src/BxGame/EditorState.cpp
         src/BxGame/EditorState.h
+        src/core/world_data.h
+        src/libs/json.hpp
 )
 
 if(  )

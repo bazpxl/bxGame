@@ -2,8 +2,7 @@
 // Created by bzl on 19.05.2024.
 //
 
-#ifndef BXGAME_GAME_H
-#define BXGAME_GAME_H
+#pragma once
 
 #include <core/global.h>
 
@@ -116,6 +115,3 @@ public:
 
 };
 
-
-
-#endif //BXGAME_GAME_H

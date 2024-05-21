@@ -3,10 +3,17 @@
 //
 
 #include "EditorState.h"
+#include <core/global.h>
+
+#include "core/world_data.h"
 
 
 void EditorState::Init() {
+    // Map = std::make_shared<TileMap>(BasePath"assets/map.json");
 
+    Map = std::make_shared<TileMap>(Vector<Layer>( {{{{1,1},{1,1}}, true}}), 32);
+    Map->saveToJson(BasePath"assets/map.json");
+    print("Saved\n");
 }
 
 EditorState::~EditorState() = default;

@@ -2,9 +2,6 @@
 // Created by bzl on 19.05.2024.
 //
 
-#ifndef SDL_BZGAME_SDL_SMARTPTRS_H
-#define SDL_BZGAME_SDL_SMARTPTRS_H
-
 #include <core/global.h>
 
 struct bzDeleter{
@@ -37,5 +34,3 @@ CreateSharedWindow(const char* title, int x, int y, int w, int h, Uint32 flags)
     if(!window) throw std::runtime_error("ERROR: Could not create window.\n");
     return {window, bzDeleter()};
 }
-
-#endif //SDL_BZGAME_SDL_SMARTPTRS_H

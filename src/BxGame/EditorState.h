@@ -2,13 +2,16 @@
 // Created by bzl on 19.05.2024.
 //
 
-#ifndef BXGAME_EDITORSTATE_H
-#define BXGAME_EDITORSTATE_H
-
+#pragma once
 
 #include "core/Game.h"
 
+
+class TileMap;
+
 class EditorState : public GameState {
+private:
+    shared_ptr<TileMap> Map = nullptr;
 public:
     explicit EditorState(Game & game_, Renderer * renderer_) : GameState(game_, renderer_){}
 
@@ -28,4 +31,3 @@ public:
 };
 
 
-#endif //BXGAME_EDITORSTATE_H

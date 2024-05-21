@@ -1,9 +1,7 @@
 //
 // Created by bzl on 19.05.2024.
 //
-#ifndef SDL_BZGAME_GLOBAL_H
-#define SDL_BZGAME_GLOBAL_H
-
+#pragma once
 
 // --------------------------------------------------------------------------------------------------------------
 // LIBRARIES ----------------------------------------------------------------------------------------------------
@@ -22,7 +20,7 @@
 #include <string>
 #include <unordered_set>
 #include <vector>
-
+#include <fstream>
 
 #include <fmt/core.h>   // https://fmt.dev/latest/index.html
 #include <nfd.h>        // https://github.com/mlabbe/nativefiledialog/blob/master/README.md
@@ -90,6 +88,7 @@ using Chunk       = Mix_Chunk;
 //using Sound       = Mix_Chunk;
 using Music       = Mix_Music;
 
+
 template<class T, std::size_t Size> using Array  = std::array<T, Size>;
 template<class T>                   using Vector = std::vector<T>;
 
@@ -109,7 +108,7 @@ using fmt::print, fmt::println, fmt::format;
 
 #ifdef FINAL
 #else
-#define BasePath "../../"    //    out/build/${architecture}-${configuration}
+#define BasePath "../"    //    out/build/${architecture}-${configuration}
 // OR build/${configuration}-${compiler}/bin
 #endif
 
@@ -123,5 +122,3 @@ using fmt::print, fmt::println, fmt::format;
 
 
 
-
-#endif //SDL_BZGAME_GLOBAL_H

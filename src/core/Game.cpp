@@ -3,7 +3,9 @@
 //
 
 #include "Game.h"
+
 #include "sdl_smartptrs.h"
+
 
 Game::Game(const char *windowTitle, const Point wSize, const bool vSync) {
 
@@ -84,9 +86,7 @@ int Game::Run() {
         // Main loop trinity
         {
             Input();
-
             Update( msSinceStart, deltaT );
-
             Render( msSinceStart, deltaTNeeded );
         }
 

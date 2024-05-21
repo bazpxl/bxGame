@@ -2,8 +2,7 @@
 // Created by bzl on 19.05.2024.
 //
 
-#ifndef BXGAME_BXGAME_H
-#define BXGAME_BXGAME_H
+#pragma once
 
 
 #include "core/Game.h"
@@ -16,5 +15,3 @@ public:
     bool HandleEvent(const Event &event) override;
 };
 
-
-#endif //BXGAME_BXGAME_H
