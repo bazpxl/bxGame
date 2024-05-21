@@ -12,11 +12,11 @@ class GameState;
 
 class Game {
 protected:
-    std::shared_ptr<SDL_Window>     window;
-    std::shared_ptr<SDL_Renderer>   renderer;
+    shared_ptr<Window>     window;
+    shared_ptr<Renderer>   renderer;
 
-    std::shared_ptr<GameState> currState = nullptr;
-    Vector<std::shared_ptr<GameState>> allStates;
+    shared_ptr<GameState> currState = nullptr;
+    Vector<shared_ptr<GameState>> allStates;
 
     u32 framesSinceStart = 0;
     Point windowSize;
@@ -42,7 +42,7 @@ public:
 
     virtual ~Game();
     //------------------------------------------------------------------------------------
-    bool    IsRunning()     const { return isRunning; }
+    [[nodiscard]] bool    IsRunning()     const { return isRunning; }
     virtual void SetNextState( int index ) { nextStateIdx = index; }
 
     virtual bool HandleEvent( const Event & event );
@@ -70,7 +70,7 @@ protected:
     TimePoint lastPerfInfoTime = Clock::now();
     Duration accumulatedNeeded = Duration::zero();
 
-    float AverageMSecPerFrame() const;
+    [[nodiscard]] float AverageMSecPerFrame() const;
     void ResetPerformanceInfo( const TimePoint current );
     void OutputPerformanceInfo( const TimePoint current, const Duration needed );
 
@@ -81,19 +81,17 @@ protected:
 
 class GameState {
 protected:
-
     Game &game;
-
-    std::shared_ptr<SDL_Renderer> renderer;
+    std::shared_ptr<Renderer> renderer;
 
 public:
     // CONSTRUCTORS
     // -----------------------------------------------------------------------------------
-    explicit GameState( Game & game_, SDL_Renderer * render_ )
+    explicit GameState( Game & game_, Renderer * render_ )
             :  game( game_ ), renderer( render_ )
     {}
 
-    explicit GameState( Game && game_, SDL_Renderer * render_ )         = delete; // prevent taking an rvalue
+    explicit GameState( Game && game_, Renderer * render_ )         = delete; // prevent taking an rvalue
     GameState( const GameState &  other)                            = delete; // COPY-Constructor
     GameState( GameState && other)                                  = delete; // MOVE-Constructor
     GameState & operator=( const GameState & other)                 = delete; // COPY-ASSIGNMENT

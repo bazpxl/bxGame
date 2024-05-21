@@ -4,6 +4,11 @@
 #ifndef SDL_BZGAME_GLOBAL_H
 #define SDL_BZGAME_GLOBAL_H
 
+
+// --------------------------------------------------------------------------------------------------------------
+// LIBRARIES ----------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------
+
 #include <cmath>
 #include <cstdarg>
 #include <cstddef>
@@ -19,14 +24,11 @@
 #include <vector>
 
 
-
-
-
-
 #include <fmt/core.h>   // https://fmt.dev/latest/index.html
 #include <nfd.h>        // https://github.com/mlabbe/nativefiledialog/blob/master/README.md
 
-// Usually ImGui is only included during development, but defining IMGUI_ALSO_IN_RELEASE can make it available everywhere
+// Usually ImGui is only included during development,
+// but defining IMGUI_ALSO_IN_RELEASE can make it available everywhere
 #if defined( _DEBUG ) || (defined( IMGUI_ALSO_IN_RELEASE ) && defined( RELEASE ))
 #include <imgui.h>      // https://github.com/ocornut/imgui/blob/bb224c8aa1de1992c6ea3483df56fb04d6d1b5b6/examples/example_sdl2_sdlrenderer/main.cpp
 #include <imgui_impl_sdl2.h>
@@ -48,6 +50,8 @@
 #include <SDL_opengl.h>
 #endif
 
+// --------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------
 
 using i8    = std::int8_t;
 using i16   = std::int16_t;
@@ -88,6 +92,9 @@ using Music       = Mix_Music;
 
 template<class T, std::size_t Size> using Array  = std::array<T, Size>;
 template<class T>                   using Vector = std::vector<T>;
+
+template<class T>                   using shared_ptr = std::shared_ptr<T>;
+
 
 using Clock     = std::chrono::high_resolution_clock;
 using TimePoint = Clock::time_point;

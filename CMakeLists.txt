@@ -173,8 +173,6 @@ add_executable( bxGame
         src/core/sdl_smartptrs.h
         src/core/Game.cpp
         src/core/Game.h
-        src/core/GameState.cpp
-        src/core/GameState.h
         src/BxGame/BxGame.cpp
         src/BxGame/BxGame.h
         src/BxGame/EditorState.cpp
