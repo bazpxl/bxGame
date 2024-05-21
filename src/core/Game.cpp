@@ -138,6 +138,37 @@ Game::~Game()
 }
 
 bool Game::HandleEvent(const Event &event) {
+    switch( event.type )
+    {
+        case SDL_QUIT:
+            isRunning = false;
+        return true;
+        break;
+
+        case SDL_KEYDOWN:
+        {
+            const auto & key_event = event.key;
+            const Keysym what_key = key_event.keysym;
+
+            if( (what_key.mod & KMOD_ALT) &&
+                (what_key.scancode == SDL_SCANCODE_F4) )
+            {
+                Event next_event = { .type = SDL_QUIT };
+                SDL_PushEvent( &next_event );
+                return true;
+            }
+            break;
+        }
+
+        case SDL_KEYUP:
+            break;
+
+        case SDL_MOUSEBUTTONDOWN:
+        case SDL_MOUSEBUTTONUP:
+        case SDL_MOUSEWHEEL:
+            break;
+    }
+
     return false;
 }
 

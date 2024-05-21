@@ -9,9 +9,9 @@ try
     BxGame game;
     return game.Run();
 }
-catch( ... )
+catch( const std::exception& e )
 {
-    print( "Non-SDL Exception has occurred!\n" );
+    println("Non-SDL Exception has occurred!\n {}", e.what());
 
     // put a breakpoint in this line, to prevent the shell from closing
     return 66;

@@ -36,7 +36,7 @@ bool EditorState::HandleEvent(const Event &event)
             const Keysym& what_key = event.key.keysym;
 
             if (what_key.scancode == SDL_SCANCODE_ESCAPE){
-                game.SetNextState(0);
+                exit(14);
             }else
             {
                 return false; // Not handled
@@ -55,9 +55,9 @@ bool EditorState::HandleEvent(const Event &event)
 
 
 void EditorState::Update(const u32 framesSinceStart, const u32 msSinceStart, const float deltaT) {
-
+    print("Editor: Update()");
 }
 
 void EditorState::Render(const u32 framesSinceStart, const u32 msSinceStart, const float deltaT) {
-
+    print("Editor: Render()");
 }

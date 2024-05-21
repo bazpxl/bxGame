@@ -11,7 +11,6 @@
 #include <cstdarg>
 #include <cstddef>
 #include <cassert>
-#include <algorithm>
 #include <array>
 #include <chrono>
 #include <iostream>

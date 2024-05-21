@@ -2,6 +2,9 @@
 // Created by bzl on 19.05.2024.
 //
 
+#pragma once
+
+
 #include <core/global.h>
 
 struct bzDeleter{
@@ -11,15 +14,15 @@ struct bzDeleter{
 
 };
 
-shared_ptr<Texture>
+inline shared_ptr<Texture>
 CreateSharedTexture(SDL_Renderer *renderer, const char * const file)
 {
     Texture *texture = IMG_LoadTexture(renderer, file);
-    if (!texture) throw std::runtime_error("ERROR: on call LoadTexture() \n");// handle error or return nullptr
+    if (!texture) throw std::runtime_error("ERROR: IMG_LoadTexture() \n");// handle error or return nullptr
     return {texture, bzDeleter()};
 }
 
-shared_ptr<Renderer>
+inline shared_ptr<Renderer>
 CreateSharedRenderer(const std::shared_ptr<Window>& window, int index, Uint32 flags)
 {
     Renderer* renderer = SDL_CreateRenderer(window.get(), index, flags);
@@ -27,7 +30,7 @@ CreateSharedRenderer(const std::shared_ptr<Window>& window, int index, Uint32 fl
     return {renderer, bzDeleter()};
 }
 
-shared_ptr<Window>
+inline shared_ptr<Window>
 CreateSharedWindow(const char* title, int x, int y, int w, int h, Uint32 flags)
 {
     Window* window = SDL_CreateWindow(title, x, y, w, h, flags);
