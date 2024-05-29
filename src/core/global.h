@@ -107,7 +107,7 @@ using fmt::print, fmt::println, fmt::format;
 
 #ifdef FINAL
 #else
-#define BasePath "../"    //    out/build/${architecture}-${configuration}
+#define BasePath "../../"    //    out/build/${architecture}-${configuration}
 // OR build/${configuration}-${compiler}/bin
 #endif
 

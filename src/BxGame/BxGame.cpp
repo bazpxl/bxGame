@@ -8,7 +8,7 @@
 BxGame::BxGame() : Game("BzGame", Point(1024,720),  true)
 {
     allStates = {
-        std::make_shared<EditorState>(*this, renderer.get())
+        std::make_shared<EditorState>(*this, renderer)
     };
 
     SetNextState(0);

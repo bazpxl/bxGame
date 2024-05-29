@@ -86,11 +86,11 @@ protected:
 public:
     // CONSTRUCTORS
     // -----------------------------------------------------------------------------------
-    explicit GameState( Game & game_, Renderer * render_ )
+    explicit GameState( Game & game_, shared_ptr<Renderer> render_ )
             :  game( game_ ), renderer( render_ )
     {}
 
-    explicit GameState( Game && game_, Renderer * render_ )         = delete; // prevent taking an rvalue
+    explicit GameState( Game && game_, shared_ptr<Renderer> render_ )         = delete; // prevent taking an rvalue
     GameState( const GameState &  other)                            = delete; // COPY-Constructor
     GameState( GameState && other)                                  = delete; // MOVE-Constructor
     GameState & operator=( const GameState & other)                 = delete; // COPY-ASSIGNMENT

@@ -13,7 +13,7 @@ class EditorState : public GameState {
 private:
     shared_ptr<TileMap> Map = nullptr;
 public:
-    explicit EditorState(Game & game_, Renderer * renderer_) : GameState(game_, renderer_){}
+    explicit EditorState(Game & game_, shared_ptr<Renderer> renderer_) : GameState(game_, renderer_){}
 
     ~EditorState() override;
 
